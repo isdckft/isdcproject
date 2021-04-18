@@ -1,22 +1,8 @@
-name: Docker Image CI
-
+name: Publish Docker image
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
+  release:
+    types: [published]
 jobs:
-
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag isdckft/isdcproject:$(date +%s)
-     
   push_to_registry:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
@@ -30,4 +16,3 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: isdckft/isdckftcom
           tag_with_ref: true
-          
