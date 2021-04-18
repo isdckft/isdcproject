@@ -1,0 +1,56 @@
+<div class="card" style="width: 18rem;">
+    <!-- <img class="card-img-top" src="/assets/images/card.png" alt="Card image cap"> -->
+    <div class="card-body">
+      <h5 appChangeBackground [defaultColor]="'yellow'" [highlightColor]="'grey'" class="card-title">
+        <ng-content select=".heading"></ng-content>
+      </h5>
+      <h3 appChangeBackground #heading>{{subTitle}}</h3>
+      <p class="card-text">
+        <ng-content select=".body"></ng-content>
+      </p>
+      <p><ng-content *appShowThis=true></ng-content></p>
+      <p>
+      <ng-container>Push the buttons!</ng-container>
+      </p>
+      <ul class="nav nav-pills">
+          <li class="nav-item" >
+              <a class="nav-link" [class.active]="myContent == 'first'" (click)="myContent='first'" 
+              popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+              popoverTitle="Popover on top"
+              placement="top">One</a>
+          </li>
+          <li class="nav-item" >
+              <a class="nav-link" [class.active]="myContent == 'second'" (click)="myContent='second'" 
+              tooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+              placement="right">Two</a>
+          </li>
+          <li class="nav-item" >
+              <a class="nav-link" [class.active]="myContent == 'third'" (click)="myContent='third'" >Three</a>
+          </li>          
+      </ul>
+      <div [ngSwitch]="myContent">
+          <div *ngSwitchCase="'first'">First Button Pressed</div>
+          <div *ngSwitchCase="'second'">Second Button Pressed</div>
+          <div *ngSwitchCase="'third'">Third Button Pressed</div>
+          <div *ngSwitchCaseDefault>In this case it never happens</div>
+      </div> 
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="mb-2">
+            <progressbar [value]="55"></progressbar>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="mb-2">
+            <progressbar [value]="22" type="warning" [striped]="true">22%</progressbar>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="mb-2">
+            <progressbar max="200" [value]="166" type="danger" [striped]="true" [animate]="true"><i>166 / 200</i></progressbar>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>

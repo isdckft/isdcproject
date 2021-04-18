@@ -1,0 +1,81 @@
+<div class="container">
+    <h1>{{siteTitle | uppercase}}</h1>
+    <form [formGroup]="webPageForm" (ngSubmit)="onSubmit()" >
+        <div *ngIf="webPageForm.errors" class="alert alert-danger">
+            Form error : "aaa" is not a nice name, sorry.
+        </div> 
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input  type="text" class="form-control" id="name" 
+                  formControlName="name">
+              <div *ngIf="name.invalid && name.touched" class="alert alert-danger">
+              <div *ngIf="name.errors.required">Name is required</div> 
+              <div *ngIf="name.errors.minlength">Name is minimum {{name.errors.minlength.requiredLength }} character length</div>
+              <div *ngIf="name.errors.cannotContainSpace">Name can't contain space</div> 
+              <div *ngIf="name.errors.appNameExists">Name already exists</div> 
+
+          </div>    
+        </div>
+        <div class="form-group">
+          <label for="about">About</label>
+          <input type="text" class="form-control" id="about"
+          formControlName="about">
+          <!-- Acces control via get()  -->
+          <div *ngIf="webPageForm.get('about').invalid  && about.touched"
+                class="alert alert-danger">
+              About field is required
+          </div>       
+        </div>
+
+
+      <div class="form-group">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="pagetype">Page type</label>
+          </div>
+          <select class="custom-select form-control" id="pagetype"
+            formControlName="pagetype">
+            <option *ngFor="let pageType of pageTypes" [value]="pageType.id">{{pageType.name}}</option>
+           </select>
+           <div *ngIf="pagetype.invalid && pagetype.touched"
+                class="alert alert-danger">
+               Page Type is required
+            </div> 
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="url">URL</label>
+        <input type="text" class="form-control" id="url"
+        formControlName="url">
+        <div *ngIf="url.invalid && url.touched"
+              class="alert alert-danger">
+              URL is required
+        </div> 
+      </div>
+
+      <div class="form-group">
+        <div class="checkbox"> 
+            <input type="checkbox"  id="official"
+            formControlName="official" > Official page
+        </div>
+        
+      </div>
+
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" class="form-control" id="date"
+        formControlName="date">
+        <div *ngIf="date.invalid && date.touched" class="alert alert-danger">
+          <div *ngIf="date.errors.required">Date is required</div> 
+        </div> 
+      </div>
+
+      <button type="submit" class="btn btn-primary" 
+      [disabled]="webPageForm.invalid" 
+      >Submit</button>
+      <!-- {{webPageForm.value |json}} -->
+    </form>
+  </div>
+
