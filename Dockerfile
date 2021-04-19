@@ -1,2 +1,4 @@
 FROM nginx:1.15.8-alpine
-COPY ./dist/isdcproject/ /usr/share/nginx/html
+WORKDIR /usr/share/nginx/html
+COPY ./dist/isdcproject/ .
+EXPOSE 80
