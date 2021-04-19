@@ -16,8 +16,7 @@ jobs:
         node-version: ${{ env.NODE_VERSION }}
     - run: npm ci
     - run: npm run build --if-present
-    - run: npm test --if-present
-    - run: npm postinstall
+    - run: npm run postinstall --if-present
 
     - name: Push to Docker Hub
       uses: docker/build-push-action@v1
