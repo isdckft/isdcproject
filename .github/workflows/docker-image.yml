@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-and-deploy:
-    name: Build enad deploy
+    name: Build end deploy
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -23,5 +23,5 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        repository: isdckft/isdc
+        repository: isdckft/isdcproject
         tag_with_ref: true
