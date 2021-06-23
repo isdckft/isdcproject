@@ -17,4 +17,4 @@ RUN npm run build
 #RUN node_modules/@angular/bin/ng build --prod
 
 FROM nginx:alpine
-COPY --from=0 /usr/app/dist/isdcproject/*.* /usr/share/nginx/html
+COPY --from=0 /usr/app/dist/isdcproject/*.* /usr/share/nginx/html/
