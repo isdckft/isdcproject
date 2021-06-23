@@ -1,0 +1,11 @@
+# Build
+# docker build -t isdckft/isdcproject .
+# docker run -p 4200:4200 isdckft/isdcproject 
+FROM node:alpine
+WORKDIR /usr/app
+COPY ./ ./
+RUN npm install
+RUN npm run build
+
+FROM nginx:alpine
+COPY --from=0 /dist/isdcproject /usr/share/nginx/html
