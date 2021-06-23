@@ -1,14 +1,5 @@
-#eredeti
-# FROM nginx:1.15.8-alpine
-# WORKDIR /usr/share/nginx/html
-# COPY ./dist/isdcproject/ .
-# EXPOSE 80
-
-
-
-# Build
 # docker build -t isdckft/isdcproject .
-# docker run -p 4200:4200 isdckft/isdcproject 
+# docker run -p 8080:80 isdckft/isdcproject 
 FROM node:alpine
 WORKDIR /usr/app
 COPY ./ ./
