@@ -52,9 +52,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 docker build -t isdckft/isdcproject .
 
 ## Docker RUN
-docker run -p 8080:80 isdckft/isdcproject 
-## Docker run, hogy ne álljon le
+docker run -p 80:80 isdckft/isdcproject 
+## Docker run, amikor ne álljon le
 docker run -t isdckft/isdcproject
 
-## Docker nézzünk bele
+## Containerbe belépés, ha van benne bash
 docker exec -it container-id bash
