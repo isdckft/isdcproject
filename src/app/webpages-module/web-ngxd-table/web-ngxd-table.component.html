@@ -1,0 +1,43 @@
+<div>
+  <h1>Web Pages in NGX DataTable</h1>
+  <ngx-datatable class="bootstrap"
+    [rows]="rows"
+    [loadingIndicator]="loadingIndicator"
+    [reorderable]="reorderable"
+    [limit]="limit"
+    [rowHeight]="rowHeight"
+    [headerHeight]="50"
+    [footerHeight]="40"
+    [summaryRow]="summaryRow"
+    [summaryPosition]="summaryPosition"
+    [columnMode]="columnMode"
+    [rowClass]="getRowClass"
+    >
+    
+      <ngx-datatable-column name="Id"></ngx-datatable-column>
+      <ngx-datatable-column name="Name"></ngx-datatable-column>
+      <ngx-datatable-column name="About"></ngx-datatable-column>
+      <ngx-datatable-column name="Pagetype">
+          <ng-template ngx-datatable-cell-template let-value="value">
+              {{value | pageTypePipe | async}}
+          </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Url"></ngx-datatable-column>
+      <ngx-datatable-column name="Official" headerClass= "is-header" cellClass="is-official text-right"></ngx-datatable-column>
+      <ngx-datatable-column name="Date" cellClass = "text-center"></ngx-datatable-column>
+      <ngx-datatable-column name="Delete">
+          <ng-template ngx-datatable-cell-template let-row="row">
+              <button type="submit" class="btn btn-success"  
+              [disabled]="!isAuthenticated()"
+              (click)="delete(row)">Delete</button>
+          </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="Show">
+          <ng-template ngx-datatable-cell-template let-row="row" let-rowIndex="rowIndex" let-value="value">
+              <button type="submit" class="btn btn-success"  (click)="show(row.id)">Show</button>
+          </ng-template>
+      </ngx-datatable-column>
+  
+  </ngx-datatable>
+</div>

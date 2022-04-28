@@ -1,0 +1,10 @@
+.input-div {
+  padding: 5px;
+  font-family: monospace;
+}
+.input-output-label {
+  display: inline-block;
+}
+.output {
+  font-weight: bold;
+}

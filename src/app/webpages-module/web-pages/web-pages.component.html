@@ -1,0 +1,93 @@
+<div class="row">
+    <div class="col-md-4">
+        <app-web-page-form [sub-title] ="subTitle" [webPageId] = "webPageId" 
+        (myevent)="onTriggeredEvent($event)">
+      </app-web-page-form>
+    </div>
+
+    <div class="col-md-4">
+      <app-web-page-card [sub-title] ="subTitle">
+        <div class="heading"  #contentHeading>My Card Title</div>
+        <div class="body"> 
+          {{title}}
+        </div>
+        You can see it if the custom appShowThis directive is set to true.
+      </app-web-page-card>
+    </div>
+    <div class="col-md-4">
+      <button class="btn btn-success"  (click)="onMove()">Move</button>
+      <button class="btn btn-primary" (click)="onSqueeze()">Squeeze</button>
+      <div 
+        style="width: 200px; height: 200px"
+        [@divState]="state"
+        (@divState.start)="animationStarted($event)"
+        (@divState.done)="animationEnded($event)"
+      >
+      </div>
+      <br>
+      <div
+        style="width: 100px; height: 100px"
+        [@wildState]="wildState">
+      </div>
+ 
+     
+    </div>
+</div>
+
+
+<h1>{{title | customPipe:18 }}</h1>
+<div class="row">
+    <div class="col-md-10">
+      <h3>{{newPageInserted}}</h3>
+    </div>
+    <div class="col-md-2">
+      <div *ngIf="webPages.length < 5; then notEnough else moreThan4 "></div> 
+      <ng-template #moreThan4> There are {{webPages.length }} web pages</ng-template>
+      <ng-template #notEnough> Insert new web pages</ng-template>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">About</th>
+                <th scope="col">Url</th>
+                <th scope="col">Type</th>
+                <th scope="col">Date</th>
+                <th scope="col">Official</th>
+                <ng-template [ngIf]="isAuthenticated()">
+                  <th scope="col">Delete</th>
+                  <th scope="col">Edit</th>
+                </ng-template>
+                <th scope="col">Show</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr 
+              [@list1]
+              *ngFor="let webPage of webPages;index as i">
+                <th scope="row">{{i}}</th>
+                <td>{{webPage.id}}</td>
+                <td>{{webPage.name}}</td>
+                <td>{{webPage.about}}</td>
+                <td><a href="{{webPage.url}}" target="_blank" 
+                  rel="noopener noreferrer">{{webPage.url}}</a></td>
+                <td>{{webPage.pagetype | pageTypePipe | async}}</td> 
+                <td>{{webPage.date}}</td>
+                <td> <input type="checkbox" [checked]="webPage.official" disabled></td>
+                <ng-template [ngIf]="isAuthenticated()">
+                  <td><button type="submit" class="btn btn-success"  (click)="delete(webPage)">Delete</button></td>
+                  <td><button type="submit" class="btn btn-success"  (click)="select(webPage.id)">Edit</button></td>
+                </ng-template>
+                <td><button type="submit" class="btn btn-success"  (click)="show(webPage.id)">Show</button></td>
+              </tr>
+            </tbody>
+          </table>
+
+    </div>
+</div>
+

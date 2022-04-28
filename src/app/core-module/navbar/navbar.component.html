@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="https://isdcmain.azurewebsites.net/">isdckft.com</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" 
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav navbar-nav mr-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/webpages" routerLinkActive="active">Favorite web pages</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/webpagereactive" routerLinkActive="active">New webpage with Reactive Form</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/webngxdtable" routerLinkActive="active">Web Pages Datatable</a>
+        </li>
+
+        <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Machine Learning
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+              <a class="dropdown-item" routerLink="/ml/tensorflow">Tensorflow JS</a>
+              <a class="dropdown-item" routerLink="/ml/tensordemo">Tensorflow pretrained</a>
+            </div>
+        </li> -->
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <ng-template [ngIf]="!isAuthenticated()">
+          <li class="nav-item">
+              <a class="nav-link" routerLink="/login">Login</a>
+          </li>
+        </ng-template>
+        <ng-template [ngIf]="isAuthenticated()">
+          <li class="nav-item">
+            <a class="nav-link" style="cursor:pointer;" (click)="onLogout()">Logout</a>
+          </li>
+        </ng-template>
+        <ng-template [ngIf]="isAuthenticated()">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Admin
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
+                  <a class="dropdown-item" routerLink="/">Manage PageType</a>
+                  <a class="dropdown-item" routerLink="/">Do something else</a>
+                </div>
+            </li>
+          </ng-template>
+        </ul>
+    </div>
+  </div>
+</nav>

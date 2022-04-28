@@ -1,0 +1,118 @@
+<div class="container">
+    <h1>{{siteTitle | uppercase}}</h1>
+    <h3>{{subTitle}}</h3>
+    <!-- We do not need give in parameter in onSubmit, this is only for logging -->
+    <form #webPageForm="ngForm" (ngSubmit)="onSubmit(webPageForm)" >
+      
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input  type="text" class="form-control" id="name" 
+                required
+                minlength="3"
+                [(ngModel)]="model.name" name="name"
+                #name="ngModel"
+                >    
+        <div *ngIf="!name.valid && name.touched" class="alert alert-danger">
+             <div *ngIf="name.errors.required">Name is required</div> 
+             <div *ngIf="name.errors.minlength">Name is minimum {{name.errors.minlength.requiredLength }} character length</div> 
+        </div> 
+      </div>
+
+      <div class="form-group">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="pagetype">Page type</label>
+          </div>
+
+          <select class="custom-select form-control" id="pagetype"
+            required
+            [(ngModel)]="model.pagetype" name="pagetype"
+            #pagetype="ngModel"
+            >
+            <option *ngFor="let pageType of pageTypes" [value]="pageType.id">{{pageType.name}}</option>
+           </select>
+
+          <div *ngIf="!pagetype.valid && pagetype.touched"
+           class="alert alert-danger">
+               Page type  is required
+         </div> 
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="about">About</label>
+        <input type="text" class="form-control" id="about"
+        [(ngModel)]="model.about" name="about"
+        #abouttmp (keyup.enter)="onKeyUpAbout(abouttmp)"
+        required
+        >
+        <div *ngIf="!abouttmp.valid && abouttmp.touched"
+          class="alert alert-danger">
+          About  is required
+        </div> 
+      </div>
+      <div class="form-group">
+        <label for="url">URL</label>
+        <input (keyup.enter)="onKeyUp($event)" type="text" class="form-control" id="url"
+        [(ngModel)]="model.url" name="url" 
+        #url="ngModel"
+        required>
+
+        <div *ngIf="!url.valid && url.touched"
+        class="alert alert-danger">
+          URL  is required
+        </div> 
+      </div>
+
+      <div class="form-group">
+        <!-- <div class="checkbox"> 
+            <input type="checkbox"  id="official"
+            [(ngModel)]="model.official" name="official" 
+            #officialCheckBox> Official page
+        </div> -->
+
+        <div class="form-check"> 
+          <label class="form-check-label">
+            <input type="checkbox"  id="official"
+            [(ngModel)]="model.official" name="official" 
+            #officialCheckBox> 
+          
+          Official page
+          </label>
+        </div>
+        
+      </div>
+
+
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" class="form-control" id="date"
+        [(ngModel)]="model.date" name="date" 
+        #date="ngModel"
+        required>
+
+        <div *ngIf="!date.valid && date.touched"
+            class="alert alert-danger">
+            Date  is required
+        </div> 
+      </div>
+
+      <button [style.borderColor]="isNew ? 'red' : 'yellow' " type="button" class="btn" (click)="openModal(template)"
+      [disabled]="!webPageForm.form.valid" 
+      [ngClass]="{
+        'btn-primary': isNew,
+        'btn-success': !isNew
+      }"
+      >Submit</button>
+      <br>
+      <pre class="card card-block card-header">{{message}}</pre>
+      <ng-template #template>
+        <div class="modal-body text-center">
+          <p>Do you want to confirm?</p>
+          <button type="button" class="btn btn-default" (click)="confirm(webPageForm)" >Yes</button>
+          <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+        </div>
+      </ng-template>
+      <!-- {{webPageForm.value |json}} -->
+    </form>
+  </div>
