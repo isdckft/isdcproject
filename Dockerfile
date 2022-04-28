@@ -1,6 +1,6 @@
 # stage 
 # Az alábbi verzióval működik, alpin-nal nem
-FROM node:16.15.0 AS my-app-build
+FROM node:8.11.3 AS my-app-build
 WORKDIR /usr/app
 COPY . .
 RUN npm install
