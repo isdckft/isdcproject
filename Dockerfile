@@ -1,13 +1,14 @@
+# stage 1
 
-# FROM node:alpine
-# WORKDIR /usr/app
-# COPY ./ ./
-# RUN npm install --legacy-peer-deps
-# #RUN npm run build
+FROM node:alpine AS my-app-build
+# RUN /bin/sh -c "apk add --no-cache bash"
+WORKDIR /usr/app
+COPY . .
+RUN npm ci && npm run build
+#CMD ["/bin/bash"]
 
-# FROM nginx:alpine
-# COPY --from=0 /usr/app/dist/isdcproject/*.* /usr/share/nginx/html/
+# stage 2
 
 FROM nginx:alpine
-WORKDIR /usr/share/nginx/html/
-COPY  ./dist/isdcproject/*.* ./
+COPY --from=my-app-build /usr/app/dist/isdcproject /usr/share/nginx/html
+EXPOSE 80

@@ -53,3 +53,8 @@ docker build -t isdckft/isdcproject .
 
 ## Docker RUN
 docker run -p 8080:80 isdckft/isdcproject 
+## Docker run, hogy ne álljon le
+docker run -t isdckft/isdcproject
+
+## Docker nézzünk bele
+docker exec -it container-id bash
