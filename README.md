@@ -56,5 +56,5 @@ docker run -p 80:80 isdckft/isdcproject
 ## Docker run, amikor ne álljon le
 docker run -t isdckft/isdcproject
 
-## Containerbe belépés, ha van benne bash
+## Container-be belépés, ha van benne bash
 docker exec -it container-id bash
