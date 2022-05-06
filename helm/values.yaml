@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   #repository: nginx
-  repository: isdcproject
+  repository: https://isdckft.azurecr.io/isdcproject
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
