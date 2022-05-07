@@ -51,10 +51,66 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Make Docker image 
 docker build -t isdckft/isdcproject .
 
+## Docker push
+docker push isdckft/isdcproject
 ## Docker RUN
 docker run -p 80:80 isdckft/isdcproject 
 ## Docker run, amikor ne álljon le
-docker run -t isdckft/isdcproject
+##docker run -t isdckft/isdcproject
 
 ## Container-be belépés, ha van benne bash
 docker exec -it container-id bash
+
+## helm létrehozás root könyvtárból
+ helm create helmc
+
+## Szükséges values.yaml módosítások
+1. Meg kell adni a repository-t, ahonnan a docker imaget-t lehúzza a k8s-t
+Meg kell adni a tag-et : latest
+
+2. K8S-ben meg létre kell hozni egy secretet, ami connectál a registry-hez: 
+
+Dockerhub esetén:
+https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+
+kubectl create secret docker-registry regcred --docker-server=hub.docker.com --docker-username=isdckft --docker-password=<your-pword> --docker-email=kovacs.attila@isdc.hu
+
+Azure ACR esetén:
+
+
+Azure Portal
+Ekkor: --docker-server=isdckft.azurecr.io
+
+Két lehetőség. Vagy az admin user/jelszót használjuk, ekkor az ACR-ben az ACCESS keys-nél engedélyezni kell az admin usert. Ott található a usernév jelszó.
+--docker-username= az ott található username
+--docker-password= az ott található password
+
+Vagy Service principall-al:
+
+
+AD választása
+Create App
+	Ott egy új app-ot létrehozni (Pl. Service Principal to ACR)
+	Abban létrehozni egy secretet.
+	
+Ezutaán elmenni Az ACR-hez
+   OTT az IAM-ban Add role
+   Ott kiválasztani az ACR pull role-t
+   Ehhez hozzárendelni létrehozott:  Service Principal to ACR)
+Ekkor 
+--docker-username= A service principal application ID-ja (Nem a secret ID-ja)
+--docker-password= a secret value-ja
+Majd a fenti kubectl paranccsal létrehozni a secretet
+
+3. Be kell írni a secret nevét
+4. Ha nem akarunk Ingress-t, akkor a service type legyen LoadBalancer
+
+
+## helm módosítás, pl. values docker megadása,  után ellenőrzés
+helm lint helmc
+## helm package, ez opcionális
+helm package helmc
+## helm install k8s alá
+helm install isdcproject helmc
+helm upgrade isdcproject helmc
+
