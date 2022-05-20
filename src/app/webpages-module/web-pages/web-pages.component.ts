@@ -7,7 +7,7 @@ import {
   trigger,
   state,
   style,
-  transition, 
+  transition,  
   animate,
   keyframes,
   group

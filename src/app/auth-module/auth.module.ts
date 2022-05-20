@@ -5,8 +5,6 @@ import { CommonModule } from '@angular/common';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 
-
-
 @NgModule({
   declarations: [
     SignupComponent,

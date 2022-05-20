@@ -6,10 +6,9 @@ import { PrismModule } from '@ngx-prism/core';
 import { TensorFlowDemoComponent } from './tensor-flow-demo/tensor-flow-demo.component';
 import { FormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [
-    TensorFlowBasicComponent,
+    TensorFlowBasicComponent, 
     TensorFlowDemoComponent,
 
   ],

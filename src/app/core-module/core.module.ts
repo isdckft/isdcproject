@@ -11,8 +11,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../auth-module/auth.interceptor';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
-
-
 @NgModule({
   declarations: [
     NavbarComponent,

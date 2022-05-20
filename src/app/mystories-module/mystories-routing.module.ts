@@ -7,7 +7,6 @@ import { AngularBasicComponent } from './angular-basic/angular-basic.component';
 
 import { TsBasicComponent } from './ts-basic/ts-basic.component';
 
-
 const authRoutes: Routes = [
   {path: '', component: MyStoryComponent, children: [
     {path: 'environment', component: EnvironmentComponent},

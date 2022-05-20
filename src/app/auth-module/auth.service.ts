@@ -12,6 +12,7 @@ const httpOptions = {
   })
 };
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -42,7 +43,7 @@ export class AuthService {
     // );
    
   }
-
+  
   logout() {
     localStorage.setItem('token', '');
     this.loggedIn = false;

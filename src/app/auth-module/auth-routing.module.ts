@@ -15,4 +15,4 @@ const authRoutes: Routes = [
 
 export class AuthRoutingModule {
 
-}
+} 

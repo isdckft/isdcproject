@@ -4,7 +4,6 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
-
 @Injectable()
 export class WebPageResolver implements Resolve<WebPage> {
   constructor(private webPageService: WebPageService) {}

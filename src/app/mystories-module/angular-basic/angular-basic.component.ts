@@ -13,3 +13,4 @@ export class AngularBasicComponent implements OnInit {
   }
 
 }
+ 

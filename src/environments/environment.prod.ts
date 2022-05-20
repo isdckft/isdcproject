@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  SERVER_URL: 'https://www.isdckft.com:8000'
+  SERVER_URL: 'https://www.isdckft.com'
 };
+ 

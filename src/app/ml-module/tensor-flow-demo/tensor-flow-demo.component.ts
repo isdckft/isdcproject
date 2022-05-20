@@ -9,7 +9,7 @@ import {Translator}  from './translator';
 })
 export class TensorFlowDemoComponent implements OnInit {
 
-  hunSentence;
+  hunSentence; 
   englishSentence;
   public HOSTED_URLS = {
     model:

@@ -8,7 +8,6 @@ import { PageType } from './../../model/page-type';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
-
 @Component({
   selector: 'app-web-page-reactive',
   templateUrl: './web-page-reactive.component.html',

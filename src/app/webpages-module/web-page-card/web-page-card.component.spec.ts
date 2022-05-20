@@ -6,7 +6,7 @@ describe('WebPageCardComponent', () => {
   let component: WebPageCardComponent;
   let fixture: ComponentFixture<WebPageCardComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(async(() => { 
     TestBed.configureTestingModule({
       declarations: [ WebPageCardComponent ]
     })

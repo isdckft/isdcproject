@@ -13,7 +13,7 @@ import { AuthService } from '../../auth-module/auth.service';
 })
 export class WebNgxdTableComponent implements OnInit {
   // columns = [
-  //   { name: 'Id' },
+  //   { name: 'Id' }, 
   //   { name: 'Name' },
   //   { name: 'About' },
   //   { name: 'Url' },

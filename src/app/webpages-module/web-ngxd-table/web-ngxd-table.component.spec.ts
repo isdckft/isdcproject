@@ -9,7 +9,7 @@ describe('WebNgxdTableComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ WebNgxdTableComponent ]
-    })
+    }) 
     .compileComponents();
   }));
 

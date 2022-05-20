@@ -11,7 +11,7 @@ describe('TsBasicComponent', () => {
       declarations: [ TsBasicComponent ]
     })
     .compileComponents();
-  }));
+  })); 
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TsBasicComponent);

@@ -12,7 +12,7 @@ describe('WebPageReactiveComponent', () => {
     })
     .compileComponents();
   }));
-
+ 
   beforeEach(() => {
     fixture = TestBed.createComponent(WebPageReactiveComponent);
     component = fixture.componentInstance;

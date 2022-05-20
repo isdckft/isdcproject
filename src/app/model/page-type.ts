@@ -4,3 +4,4 @@ export class PageType {
         public name: string,
       ) {  }
 }
+ 

@@ -6,8 +6,6 @@ import { ChangeBackgroundDirective } from './directives/change-background.direct
 import { ShowThisDirective } from './directives/show-this.directive';
 import { ErrorPageComponent } from './error-page/error-page.component';
 
-
-
 @NgModule({
   declarations: [
     CustomPipePipe,

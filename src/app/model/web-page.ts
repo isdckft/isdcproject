@@ -9,3 +9,4 @@ export class WebPage {
         public date: Date
       ) {  }
 }
+ 

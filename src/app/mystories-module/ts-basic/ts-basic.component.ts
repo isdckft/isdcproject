@@ -10,6 +10,6 @@ export class TsBasicComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
+  } 
 
 }

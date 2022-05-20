@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Pipe({
-  name: 'pageTypePipe'
+  name: 'pageTypePipe' 
 })
 export class PageTypePipePipe implements PipeTransform {
   pageTypes: PageType[] =[];

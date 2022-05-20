@@ -8,7 +8,7 @@ import { Component, OnInit, Input, OnChanges, DoCheck, SimpleChanges,
   styleUrls: ['./web-page-card.component.css']
 })
 export class WebPageCardComponent implements OnInit, OnChanges, OnDestroy, AfterViewInit, AfterContentInit
-  // DoCheck, 
+  // DoCheck,  
   // AfterContentChecked,
   // AfterViewChecked
   {

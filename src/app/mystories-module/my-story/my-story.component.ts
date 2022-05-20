@@ -16,4 +16,4 @@ export class MyStoryComponent implements OnInit {
     this.router.navigate([navigateTo],{relativeTo: this.route});
   }
 
-}
+} 

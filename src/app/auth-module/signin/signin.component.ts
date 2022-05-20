@@ -6,7 +6,7 @@ import { User } from './../../model/user';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-signin',
+  selector: 'app-signin', 
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })

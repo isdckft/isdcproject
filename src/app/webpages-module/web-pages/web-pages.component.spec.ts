@@ -9,7 +9,7 @@ describe('WebPagesComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ WebPagesComponent ]
-    })
+    }) 
     .compileComponents();
   }));
 

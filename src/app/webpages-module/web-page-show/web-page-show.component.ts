@@ -5,7 +5,7 @@ import { ActivatedRoute, Router, Params, Data } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
-@Component({
+@Component({ 
   selector: 'app-web-page-show',
   templateUrl: './web-page-show.component.html',
   styleUrls: ['./web-page-show.component.css']

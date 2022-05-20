@@ -7,7 +7,7 @@ import { PageType } from './../../model/page-type';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
-@Component({
+@Component({ 
   selector: 'app-web-page-form',
   templateUrl: './web-page-form.component.html',
   styleUrls: ['./web-page-form.component.css']

@@ -8,7 +8,6 @@ import { TsBasicComponent } from './ts-basic/ts-basic.component';
 import { MyStoriesRoutingModule } from './mystories-routing.module';
 import { PrismModule } from '@ngx-prism/core';
 
-
 @NgModule({
   declarations: [
     EnvironmentComponent,

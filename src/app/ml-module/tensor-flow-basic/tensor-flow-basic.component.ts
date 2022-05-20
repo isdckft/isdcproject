@@ -13,7 +13,7 @@ export class TensorFlowBasicComponent implements OnInit {
   rank;
   tensorA;
   tensorB;
-  tensor2D;
+  tensor2D; 
   tensorZeros;
   tensorAdd;
   pred;

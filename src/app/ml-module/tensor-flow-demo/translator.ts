@@ -15,7 +15,7 @@ export  class Translator {
     numDecoderTokens ;
     decoderModel ;
 
-
+ 
 
     async init(urls) {
       console.log('My URL : '+urls);
