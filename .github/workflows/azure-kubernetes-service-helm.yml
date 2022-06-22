@@ -44,31 +44,31 @@ env:
   RESOURCE_GROUP: "isdckftcom_rg"
   CLUSTER_NAME: "isdckft-aks"
   IMAGE_PULL_SECRET_NAME: "isdckft1650371a-auth"
-  CHART_PATH: "helmc"
-  CHART_OVERRIDE_PATH: "helmc"
+  CHART_PATH: "./helmc/"
+  CHART_OVERRIDE_PATH: "./helmc/"
 
 jobs:
-  buildImage:
-    permissions:
-      contents: read
-      id-token: write
-    runs-on: ubuntu-latest
-    steps:
-    # Checks out the repository this file is in
-    - uses: actions/checkout@v3
+  # buildImage:
+  #   permissions:
+  #     contents: read
+  #     id-token: write
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   # Checks out the repository this file is in
+  #   - uses: actions/checkout@v3
     
-    # Logs in with your Azure credentials
-    - name: Azure login
-      uses: azure/login@v1.4.3
-      with:
-        client-id: ${{ secrets.AZURE_CLIENT_ID }}
-        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+  #   # Logs in with your Azure credentials
+  #   - name: Azure login
+  #     uses: azure/login@v1.4.3
+  #     with:
+  #       client-id: ${{ secrets.AZURE_CLIENT_ID }}
+  #       tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+  #       subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     
-    # Builds and pushes an image up to your Azure Container Registry
-    - name: Build and push image to ACR
-      run: |
-        az acr build --image ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }} --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.RESOURCE_GROUP }} .
+  #   # Builds and pushes an image up to your Azure Container Registry
+  #   - name: Build and push image to ACR
+  #     run: |
+  #       az acr build --image ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }} --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.RESOURCE_GROUP }} .
 
   # createSecret:
   #   permissions:
@@ -119,7 +119,7 @@ jobs:
       id-token: write
     runs-on: ubuntu-latest
     #needs: [buildImage, createSecret]
-    needs: [buildImage]
+    #needs: [buildImage]
     steps:
     # Checks out the repository this file is in
     - uses: actions/checkout@v3
