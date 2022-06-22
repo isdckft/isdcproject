@@ -45,7 +45,7 @@ env:
   CLUSTER_NAME: "isdckft-aks"
   IMAGE_PULL_SECRET_NAME: "isdckft1650371a-auth"
   CHART_PATH: "./helmc/Chart.yaml"
-  CHART_OVERRIDE_PATH: "./helmc/"
+  CHART_OVERRIDE_PATH: "./helmc/values-override.yaml"
 
 jobs:
   # buildImage:
