@@ -39,13 +39,13 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_CONTAINER_REGISTRY: "your-azure-container-registry"
-  CONTAINER_NAME: "your-container-name"
-  RESOURCE_GROUP: "your-resource-group"
-  CLUSTER_NAME: "your-cluster-name"
-  IMAGE_PULL_SECRET_NAME: "your-image-pull-secret-name"
-  CHART_PATH: "your-chart-path"
-  CHART_OVERRIDE_PATH: "your-chart-override-path"
+  AZURE_CONTAINER_REGISTRY: "isdckft"
+  CONTAINER_NAME: "isdcproject"
+  RESOURCE_GROUP: "isdckftcom_rg"
+  CLUSTER_NAME: "isdckft-aks"
+  IMAGE_PULL_SECRET_NAME: "isdckft1650371a-auth"
+  CHART_PATH: "helmc"
+  CHART_OVERRIDE_PATH: "helmc"
 
 jobs:
   buildImage:
