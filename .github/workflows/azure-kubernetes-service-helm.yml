@@ -48,7 +48,7 @@ env:
   IMAGE_PULL_SECRET_NAME: "isdckft1650371a-auth"
   CHART_PATH: "./helmc/"
   CHART_OVERRIDE_PATH: "./helmc/values-override.yaml"
-  IMAGE_VERSION: "40"
+  IMAGE_VERSION: "41"
 
 jobs:
   buildImage:
